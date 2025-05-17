@@ -11,7 +11,7 @@ export default function HomePage() {
     });
   }, []);
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center ">
+    <div className="relative w-full min-h-screen flex flex-col items-center overflow-hidden ">
       <div className="absolute w-full h-full  bg-[url('/coffee.jpg')] bg-cover bg-center  brightness-50"></div>
       <div className="drop-shadow-2xl w-4/5  flex flex-col justify-between mt-20">
         <div className="text-white w-full  space-y-5  ">
@@ -38,7 +38,7 @@ export default function HomePage() {
           data-aos="fade-down"
           data-aos-anchor-placement="top-bottom"
           to="/menu"
-          className="w-4/5 absolute bottom-20 rounded-lg bg-[rgba(177,159,145,0.8)] text-center py-2 text-2xl cursor-pointer"
+          className="w-4/5 absolute bottom-25 rounded-lg bg-[rgba(177,159,145,0.8)] text-center py-2 text-2xl cursor-pointer"
         >
           Menu
         </Link>
