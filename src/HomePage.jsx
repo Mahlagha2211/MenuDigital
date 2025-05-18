@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center  ">
       <div className="absolute w-full h-full  bg-[url('/coffee.jpg')] bg-cover bg-center  brightness-50"></div>
-      <div className="drop-shadow-2xl w-4/5   flex-1  flex flex-col justify-between pt-14 pb-24">
+      <div className="drop-shadow-2xl w-4/5   flex-1 gap-y-6 flex flex-col justify-between pt-14 pb-24">
         <div className="text-white w-full  space-y-5  ">
           <div className="flex  " data-aos="fade-right">
             <p className="sm:tracking-[20px] tracking-[15px]  max-[540px]:tracking-[10px] max-[470px]:tracking-[7px] max-[370px]:tracking-[12px] ">
