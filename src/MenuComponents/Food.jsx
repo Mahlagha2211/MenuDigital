@@ -3,10 +3,17 @@ import { useQuery } from "@tanstack/react-query";
 import Modal from "react-modal";
 import { useParams } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { RxCross2 } from "react-icons/rx";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 export default function Food() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
   const { category } = useParams();
   const [modalopen, setModalOpen] = useState(false);
   const [selecteditem, setSelecteditem] = useState(null);
@@ -32,7 +39,10 @@ export default function Food() {
   if (isError) return <p>خطا: {error.message}</p>;
   return (
     <div className=" sm:p-8 px-6  py-8 space-y-7   !min-h-[500px] bg-[#48494b]">
-      <p className="text-[40px] max-md:text-[30px] max-[450px]:!text-[25px] text-center bg-[#b19f91] rounded-2xl font-light text-shadow-[1px_1px_0_black]">
+      <p
+        className="text-[40px] max-md:text-[30px] max-[450px]:!text-[25px] text-center bg-[#b19f91] rounded-2xl font-light text-shadow-[1px_1px_0_black]"
+        data-aos="zoom-in"
+      >
         {category}
       </p>
       <div className="grid md:grid-cols-2 items:!grid-cols-3  gap-x-5 gap-y-7 ">
@@ -43,6 +53,7 @@ export default function Food() {
               setSelecteditem(item);
               setModalOpen(true);
             }}
+            data-aos="fade-up"
             className="cursor-pointer  rounded-2xl p-3 flex gap-x-3 bg-[rgba(177,159,145,0.5)] text-[#1c1c1c] gap-y-2"
           >
             <img

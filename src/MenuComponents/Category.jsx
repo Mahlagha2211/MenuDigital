@@ -1,8 +1,16 @@
 import React, { useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Category() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
   const categories = [
     {
       title: "breakfast",
@@ -44,8 +52,8 @@ export default function Category() {
   };
 
   return (
-    <div className="w-full sticky top-0 bg-[#b19f91] shadow-[0_0_1px_gray] backdrop-blur-3xl">
-      <div className="relative w-[80%] max-[500px]:w-[78%] max-[420px]:w-[72%]    mx-auto">
+    <div className="w-full sticky top-0 bg-[#b19f91] shadow-[0_0_1px_gray] backdrop-blur-3xl z-50">
+      <div className="relative w-[80%] max-[500px]:w-[78%] max-[420px]:w-[72%]    mx-auto " data-aos="flip-up">
         <div
           ref={scrollRef}
           onMouseDown={handleMouseDown}
@@ -68,6 +76,7 @@ export default function Category() {
           </button>
           {categories.map((item) => (
             <NavLink
+              
               key={item.title}
               to={item.to}
               className={({ isActive }) =>
@@ -76,7 +85,7 @@ export default function Category() {
                 } relative flex flex-col justify-center items-center min-w-20 !h-16 transition duration-200 rounded-lg`
               }
             >
-              <img src={item.img}  alt={item.title} />
+              <img src={item.img} alt={item.title} />
               <p>{item.title}</p>
             </NavLink>
           ))}
